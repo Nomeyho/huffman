@@ -3,10 +3,10 @@
 	export let height;
 	export let data;
 
-	import { onMount } from 'svelte';
+	import { beforeUpdate, afterUpdate } from 'svelte';
 	import { round } from './utils.js';
 
-	onMount(() => {
+	function draw() {
 		// SVG
 		const margin = { top: 40, right: 120, bottom: 20, left: 120 }; // TODO scale
 		const w = width - margin.right - margin.left;
@@ -61,10 +61,9 @@
 			.attr('y1', d => d.source.y + 16) // TODO scale
 			.attr('x2', d => d.target.x)
 			.attr('y2', d => d.target.y - 10); // TODO scale
-	});
+	}
 
-	/*
-	window.onresize = () => {
+	beforeUpdate(() => {
 		d3.select('svg g.nodes')
 			.selectAll('text')
 			.remove();
@@ -72,10 +71,11 @@
 		d3.select('svg g.links')
 			.selectAll('line')
 			.remove();
-		
+	});
+
+	afterUpdate(() => {
 		draw();
-	};
-	*/
+	});
 </script>
 
 <svg>
