@@ -1,4 +1,8 @@
 # Huffman encoding
+> Interactive Huffman encoding tree
+
+
+[https://nomeyho.github.io/huffman/public](https://nomeyho.github.io/huffman/public)
 
 ## Development
 ```bash
