@@ -8,12 +8,8 @@ function createFrequencies() {
 
     return {
         subscribe,
-        set: (letter, value) => {
-            update(frequencies => {
-                const frequency = frequencies.find(f => f.letter === letter);
-                frequency.value = value;
-                return frequencies;
-            });
+        set: (frequencies) => {
+            update((f) => f);
         },
         reset: () => set(defaultFrequencies)
     };
@@ -23,6 +19,7 @@ export const frequencies = createFrequencies();
 
 export const root = derived(frequencies, $frequencies => {
     const tree = buildHuffmanTree($frequencies);
+    console.log(JSON.stringify(tree, null, 2));
     const root = d3.hierarchy(tree);
     const layout = d3.cluster()
         .separation((a, b) => 2)

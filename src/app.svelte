@@ -1,18 +1,15 @@
 <script>
 	import { onMount } from 'svelte';
 	import Tree from './components/tree.svelte';
+	import Menu from './components/menu.svelte';
 </script>
 
 <main class="container">
-
-	<div class="left">
-		LEFT
-	</div>
-
-	<div class="right">
+	<Menu />
+	<div>
+		<h1>Huffman Tree</h1>
 		<Tree />
 	</div>
-
 </main>
 
 <style>
@@ -20,12 +17,7 @@
 	display: flex;
 }
 
-.left {
-	background-color: gray;
-	min-height: 100vh;
-}
-
-.right {
-	margin: auto 0;
+h1 {
+	text-align: center;
 }
 </style>

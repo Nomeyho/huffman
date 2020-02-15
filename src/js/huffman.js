@@ -1,6 +1,6 @@
 import SortedStack from './sorted_stack';
 
-const nodeComparator = (n1, n2) => n1.value >= n2.value;
+const nodeComparator = (n1, n2) => n1.value - n2.value;
 
 export function buildHuffmanTree(frequencies) {
     const stack = new SortedStack(nodeComparator);

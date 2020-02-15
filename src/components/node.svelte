@@ -9,29 +9,28 @@
 </text>
 
 {#if node.height === 0}
-<text class="letter" x={node.y + 15} y={node.x + 2}>
+<text class="letter" x={node.y + 16} y={node.x + 2}>
 	{node.data.letter}
 </text>
-<text class="encoding" x={node.y + 30} y={node.x + 2}>
+<text class="encoding" x={node.y + 65} y={node.x + 2}>
 	{node.data.encoding}
 </text>
 {/if}
 
 <style>
-	text {
+	.value {
 		text-anchor: middle;
-		fill: black;
 		font-size: 7px;
 	}
 
-	.value {
-	}
-
 	.letter {
+		font-size: 7px;
 		font-weight: 600;
 	}
 
 	.encoding {
+		font-size: 7px;
+		text-anchor: end;
 		fill: darkred;
 	}
 </style>
