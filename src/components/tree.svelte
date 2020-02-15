@@ -27,7 +27,6 @@
 
 <style>
 	svg {
-		border: 1px solid black;
 		width: 100%;
 	}
 </style>

@@ -4,31 +4,34 @@
 	import { round } from '../js/utils.js';
 </script>
 
-<text x={node.x} y={node.y}>
-	<tspan class="value" x={node.x} dy={0} dx={2}>
-		{round(node.data.value)}
-	</tspan>
-	{#if node.height === 0}
-		<tspan 	class="letter" x={node.x} dy={8}>
-			{node.data.letter}
-		</tspan>
-	{/if}
+<text class="value" x={node.y} y={node.x + 2}>
+	{round(node.data.value)}
 </text>
+
+{#if node.height === 0}
+<text class="letter" x={node.y + 15} y={node.x + 2}>
+	{node.data.letter}
+</text>
+<text class="encoding" x={node.y + 30} y={node.x + 2}>
+	{node.data.encoding}
+</text>
+{/if}
 
 <style>
 	text {
 		text-anchor: middle;
+		fill: black;
+		font-size: 7px;
 	}
 
 	.value {
-		font-size: 7px;
-		font-weight: 400;
-		fill: black;
 	}
 
 	.letter {
-		font-size: 6px;
 		font-weight: 600;
-		fill: black;
+	}
+
+	.encoding {
+		fill: darkred;
 	}
 </style>

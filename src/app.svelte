@@ -26,6 +26,6 @@
 }
 
 .right {
-	background-color: lightblue;
+	margin: auto 0;
 }
 </style>

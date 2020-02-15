@@ -7,8 +7,6 @@ export default class SortedStack {
     push(element) {
         this.elements.push(element);
         this.elements.sort(this.sort);
-
-        console.log(JSON.stringify(this.elements.map(e => e.value), null, 2))
     }
 
     pop() {

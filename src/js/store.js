@@ -27,8 +27,8 @@ export const root = derived(frequencies, $frequencies => {
     const layout = d3.cluster()
         .separation((a, b) => 2)
         .size([
-            WIDTH - MARGIN.left - MARGIN.right,
-            HEIGHT - MARGIN.top - MARGIN.bottom
+            HEIGHT - MARGIN.top - MARGIN.bottom,
+            WIDTH - MARGIN.left - MARGIN.right
         ]);
     layout(root);
     return root;
