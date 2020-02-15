@@ -20,8 +20,6 @@ export function buildHuffmanTree(frequencies) {
                 children: [f1, f2]
             });
         } else {
-            // Done
-            computeHuffmanEncoding(f1);
             return f1;
         }
     }
@@ -45,4 +43,35 @@ export function computeHuffmanEncoding(root) {
 
     computeHuffmanEncoding(left);
     computeHuffmanEncoding(right);
+}
+
+export function computeHuffmanCodeLength(root) {
+    const leaves = getLeaves(root);
+    let codeLength = 0;
+
+    for (const leaf of leaves) {
+        codeLength += leaf.encoding.length * leaf.value;
+    }
+
+    return codeLength / root.value;
+}
+
+export function computeEntropy(root) {
+    const leaves = getLeaves(root);
+    let entropy = 0;
+
+    for (const leaf of leaves) {
+        const p = leaf.value / root.value;
+        entropy -= p * Math.log2(p);
+    }
+
+    return entropy;
+}
+
+export function getLeaves(root) {
+    if (root.children) {
+        return root.children.flatMap(getLeaves);
+    } else {
+        return [root];
+    }
 }

@@ -7,7 +7,7 @@ import { frequencies } from '../js/store.js';
   {#each $frequencies as frequency}
     <label>
       <span>{frequency.letter}:</span>
-      <input type=number bind:value={frequency.value}>
+      <input type=number step="any" bind:value={frequency.value}>
     </label>
   {/each}
 </div>
