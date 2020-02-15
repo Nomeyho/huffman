@@ -1,10 +1,8 @@
-import frequencies from './frequencies';
-import Node from './node';
 import SortedStack from './sorted_stack';
 
-const nodeComparator = (n1, n2) => n1.frequency - n2.frequency;
+const nodeComparator = (n1, n2) => n1.value >= n2.value;
 
-export function getHuffmanTree() {
+export function buildHuffmanTree(frequencies) {
     const stack = new SortedStack(nodeComparator);
 
     for (let frequency of frequencies) {
@@ -18,7 +16,7 @@ export function getHuffmanTree() {
         if (f1 && f2) {
             stack.push({
                 letter: f1.letter + f2.letter,
-                frequency: f1.frequency + f2.frequency,
+                value: f1.value + f2.value,
                 children: [f1, f2]
             });
         } else {

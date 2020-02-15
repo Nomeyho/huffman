@@ -5,14 +5,10 @@ export default class SortedStack {
     }
 
     push(element) {
-        const index = this.elements.find(this.sort);
+        this.elements.push(element);
+        this.elements.sort(this.sort);
 
-        if (index === undefined) {
-            this.elements.push(element);
-        } else {
-            // insert at the specified index & remove 0 element
-            this.elements.splice(index, 0, element);
-        }
+        console.log(JSON.stringify(this.elements.map(e => e.value), null, 2))
     }
 
     pop() {

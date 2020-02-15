@@ -1,31 +1,31 @@
 <script>
 	import { onMount } from 'svelte';
-	import Tree from './tree.svelte';
-	import { getHuffmanTree } from './huffman.js';
-
-	const data = getHuffmanTree();
-	let width = 0;
-	let height = 0;
-
-	onMount(() => {
-		width = 0.8 * document.getElementById('main').clientWidth;
-		height = 0.6 * width;
-	});
-
-	window.onresize = () => {
-		width = 0.8 * document.getElementById('main').clientWidth;
-		height = 0.6 * width;
-	};
-
+	import Tree from './components/tree.svelte';
 </script>
 
-<main id='main'>
-	<Tree
-		width="{width}"
-		height="{height}"
-		data="{data}"
-	/>
+<main class="container">
+
+	<div class="left">
+		LEFT
+	</div>
+
+	<div class="right">
+		<Tree />
+	</div>
+
 </main>
 
 <style>
+.container {
+	display: flex;
+}
+
+.left {
+	background-color: gray;
+	min-height: 100vh;
+}
+
+.right {
+	background-color: lightblue;
+}
 </style>
